@@ -7,25 +7,21 @@ Queue.prototype.add = function(fn) {
   return this;
 }
 
-Queue.prototype._virginScope = function(cb){
-  var executed = false;
-  return function() {
-    if (executed) throw new Error('callback can\'t be executed twice');
-    executed = true;
-    cb.apply(this, Array.prototype.slice.call(arguments));
-  }
-}
 
 Queue.prototype.run = function(cb) {
-  var q = this;
+  var queue = this._queue;
   var next = function(error) {
     if (error !== void 0) return cb(error);
-    var task = q._queue.shift();  
-    if (task) {
-      task(q._virginScope(next));
-    } else {
-      cb();
-    }
+    var task = queue.shift();  
+    if (!task) return cb();
+    task((function(){
+      var executed = false;
+      return function(error) {
+        if (executed) throw new Error('callback can\'t be executed twice');
+        executed = true;
+        next(error);
+      }
+    })());
   }
   next();
 }
