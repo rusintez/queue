@@ -1,5 +1,6 @@
 function Queue() {
   this._queue = [];
+  return this;
 }
 
 Queue.prototype.add = function(fn) {
@@ -25,3 +26,5 @@ Queue.prototype.run = function(cb) {
   }
   next();
 }
+
+Queue.prototype.constructor = Queue;
