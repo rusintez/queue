@@ -1,0 +1,16 @@
+{
+  "name": "queue",
+  "version": "0.1.0",
+  "description": "FIFO queue for node and browser",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rusintez/queue.git"
+  },
+  "keywords": [
+    "queue",
+    "fifo"
+  ],
+  "author": "Vladimir Popov",
+  "license": "MIT"
+}
