@@ -19,7 +19,7 @@ Queue.prototype._virginScope = function(cb){
 Queue.prototype.run = function(cb) {
   var q = this;
   var next = function(error) {
-    if (error) return cb(error);
+    if (error !== void 0) return cb(error);
     var task = q._queue.shift();  
     if (task) {
       task(q._virginScope(next));
