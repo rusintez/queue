@@ -16,4 +16,7 @@ FIFO queue for node and browser
     q.add(function(next){ setInterval(function(){ next(); }, 1000); });
     q.run(function(error){}); // -> will throw an error, after 2000ms (on second tick)
     
+    var q = new Queue(4, 2);
+    q.add(function(n, m, next) { console.log(n,m); });
+    q.end(function(){}); // -> 4, 2
     
