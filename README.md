@@ -1,5 +1,6 @@
-queue
-=====
+# queue
+
+[![wercker status](https://app.wercker.com/status/7aa55ee6d0f0ecc0ab21220d2d2eb2d3/m "wercker status")](https://app.wercker.com/project/bykey/7aa55ee6d0f0ecc0ab21220d2d2eb2d3)
 
 FIFO queue for node and browser
 
